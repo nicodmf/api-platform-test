@@ -67,7 +67,17 @@ services:
       - target: 5432
         published: 5432
         protocol: tcp
-
+  dbadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=user@domain.com
+      - PGADMIN_DEFAULT_PASSWORD=user@domain.com
+      - POSTGRES_USER=api-platform
+    ports:
+      - target: 80
+        published: 89
+        protocol: tcp
+    
   mercure:
     image: dunglas/mercure
     environment:
